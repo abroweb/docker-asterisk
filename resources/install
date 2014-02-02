@@ -1,0 +1,12 @@
+mkdir /var/run/sshd
+chmod 0755 /var/run/sshd
+
+cat > /etc/supervisor/conf.d/ssh.conf <<EOF
+[program:sshd]
+command=/usr/sbin/sshd -D
+EOF
+
+cat > /etc/supervisor/conf.d/asterisk.conf <<EOF
+[program:asterisk]
+command=/usr/sbin/asterisk -f
+EOF
